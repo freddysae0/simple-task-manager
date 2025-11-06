@@ -32,13 +32,18 @@ export const createTask = async (req: Request, res: Response) => {
     
     const result = db.getDb().prepare(
       "INSERT INTO tasks (title, description, status) VALUES (?, ?, ?)"
-    ).run(validatedData.title, validatedData.description || null, validatedData.status);
+    ).run(
+      validatedData.title, 
+      validatedData.description || null, 
+      validatedData.status || TaskStatus.PENDING
+    );
     
     const newTask = db.getDb().prepare("SELECT * FROM tasks WHERE id = ?").get(result.lastInsertRowid);
     res.status(201).json(newTask);
   } catch (error) {
+    console.error('Error creating task:', error);
     if (error instanceof Error && error.name === "ZodError") {
-      return res.status(400).json({ error: "Invalid input data" });
+      return res.status(400).json({ error: "Invalid input data", details: error });
     }
     res.status(500).json({ error: "Failed to create task" });
   }
