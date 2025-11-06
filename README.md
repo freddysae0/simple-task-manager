@@ -313,4 +313,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Backend Documentation](./backend/README.md)
 - [Frontend Documentation](./frontend/README.md)
 - [CLI Documentation](./cli/README.md)
-- [API Documentation](./backend/docs/api.md)
