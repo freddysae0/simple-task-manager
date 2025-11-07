@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { Edit2, Trash2, CheckCircle, Circle } from "lucide-react";
-import { TaskStatus } from "../types/task";
-import type { Task } from "../types/task";
-
-interface TaskItemProps {
-  task: Task;
-  onEdit: (task: Task) => void;
-  onDelete: (task: Task) => void;
-  onToggleStatus: (task: Task) => void;
-}
+import { TaskStatus } from "../../types/task";
+import type { TaskItemProps } from "./types";
 
 export const TaskItem = ({ task, onEdit, onDelete, onToggleStatus }: TaskItemProps) => {
   const [isDeleting, setIsDeleting] = useState(false);

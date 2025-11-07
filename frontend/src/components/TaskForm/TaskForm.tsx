@@ -1,15 +1,7 @@
 import { useState } from "react";
-import { TaskStatus } from "../types/task";
+import { TaskStatus } from "../../types/task";
 import { X, Check } from "lucide-react";
-import type { Task } from "../types/task";
-import type { CreateTask } from "../types/task";
-import type { UpdateTask } from "../types/task";
-
-interface TaskFormProps {
-  task?: Task;
-  onSubmit: (task: CreateTask | UpdateTask) => void;
-  onCancel: () => void;
-}
+import type { TaskFormProps } from "./types";
 
 export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
   const [title, setTitle] = useState(task?.title || "");
@@ -25,7 +17,7 @@ export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
       return;
     }
 
-    const taskData: CreateTask | UpdateTask = {
+    const taskData = {
       title: title.trim(),
       description: description.trim() || undefined,
       status,

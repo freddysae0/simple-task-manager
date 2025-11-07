@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Plus, Filter, ListTodo } from "lucide-react";
-import { TaskItem } from "./TaskItem";
-import { TaskForm } from "./TaskForm";
-import type { Task } from "../types/task";
-import type { UpdateTask } from "../types/task";
-import type { CreateTask } from "../types/task";
-import { useTasks } from "../hooks/useTasks";
+import { TaskItem } from "../TaskItem";
+import { TaskForm } from "../TaskForm";
+import type { Task } from "../../types/task";
+import type { UpdateTask } from "../../types/task";
+import type { CreateTask } from "../../types/task";
+import type { TaskListProps } from "./types";
+import { useTasks } from "../../hooks/useTasks";
 
-export const TaskList = () => {
+export const TaskList = ({}: TaskListProps) => {
   const [showForm, setShowForm] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   
