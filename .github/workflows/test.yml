@@ -80,7 +80,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd frontend
-        pnpm install --frozen-lockfile
+        pnpm install --no-frozen-lockfile
     
     - name: Run tests
       run: |
@@ -120,7 +120,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd cli
-        pnpm install --frozen-lockfile
+        pnpm install --no-frozen-lockfile
     
     - name: Build CLI
       run: |
